@@ -1,0 +1,24 @@
+---
+title: "Dentistas en el Mundo"
+output: html_notebook
+---
+
+```{r}
+require(tidyverse)
+```
+```{r}
+df <- read.csv("dentistas_mundo_who.csv")
+str(df)
+glimpse(df)
+```
+```{r}
+table(df$Year)
+df %>% 
+  filter(Year > 2000) %>% 
+  group_by(Country) %>% 
+  summarise( Promedio = mean(Number.of.dentists))
+
+```
+
+
+
